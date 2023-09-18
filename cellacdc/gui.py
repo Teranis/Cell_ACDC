@@ -1624,7 +1624,7 @@ class guiWin(QMainWindow):
         self.labelRoiButton.setShortcut('l')
         self.labelRoiButton.setToolTip(
             'Toggle "Magic labeller" ON/OFF\n\n'
-            'ACTION: Draw a rectangular ROI aroung object(s) you want to segment\n\n'
+            'ACTION: Draw a rectangular ROI around object(s) you want to segment\n\n'
             'Draw with LEFT button to label with last used model\n'
             'Draw with RIGHT button to choose a different segmentation model\n\n'
             'SHORTCUT: "L" key')
@@ -2912,8 +2912,8 @@ class guiWin(QMainWindow):
         self.addDelRoiAction.setIcon(QIcon(":addDelRoi.svg"))
         self.addDelRoiAction.setToolTip(
             'Add resizable rectangle. Every ID touched by the rectangle will be '
-            'automaticaly deleted.\n '
-            'Moving adn resizing the rectangle will restore deleted IDs if they are not '
+            'automatically deleted.\n '
+            'Moving and resizing the rectangle will restore deleted IDs if they are not '
             'touched by it anymore.\n'
             'To delete rectangle right-click on it --> remove.')
         
@@ -2924,7 +2924,7 @@ class guiWin(QMainWindow):
         self.addDelPolyLineRoiAction.setIcon(QIcon(":addDelPolyLineRoi.svg"))
         self.addDelPolyLineRoiAction.setToolTip(
             'Add custom poly-line deletion ROI. Every ID touched by the ROI will be '
-            'automaticaly deleted.\n\n'
+            'automatically deleted.\n\n'
             'USAGE:\n'
             '- Activate the button.\n'
             '- Left-click on the LEFT image to add a new anchor point.\n'

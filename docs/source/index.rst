@@ -75,5 +75,6 @@ Contents
    citation
    installation
    getting-started
+   tooltips
    release-notes
    other
