@@ -270,30 +270,31 @@ Overview of all tools available in the GUI
 
 File control
 ~~~~~~~~~~~~
-* New File: (|file-new| "Ctrl+N")  Create a new empty segmentation file.
-* Load Folder: (|openAction| "Ctrl+O") Loads folder.
-* Load older version: (|manageVersionsAction|) Load an older version of the ``acdc_output.csv`` file (table with annotations and measurements).
-* Save: (|saveAction| "Ctrl+Alt+S") Save.
-* Quick save: ("Ctrl+S") Save only segm. file.
-* Show in explorer: (|showInExplorerAction|) Opens explorer with currently loaded folder.
-* Undo: (|undoAction|) Undo the last action
-* Redo: (|redoAction|) Redo the last undone actions
+* **New File (** |file-new| **"Ctrl+N"):**  Create a new empty segmentation file.
+* **Load Folder (** |openAction| **"Ctrl+O"):** Loads folder.
+* **Load older version (** |manageVersionsAction| **):** Load an older version of the ``acdc_output.csv`` file (table with annotations and measurements).
+* **Save (** |saveAction| **"Ctrl+Alt+S"):** Save.
+* **Quick save ("Ctrl+S"):** Save only segm. file.
+* **Show in explorer (** |showInExplorerAction| **):** Opens explorer with currently loaded folder.
+* **Undo (** |undoAction| **"Ctrl+Z"):** Undo the last action
+* **Redo (** |redoAction| **"Ctrl+Y"):** Redo the last undone actions
 
 
 View options
 ~~~~~~~~~~~~
-* Find ID: (|findIdAction| "Ctrl+F") Find and highlight ID. Press "Esc" to clear highlighted object.
-* Open Slideshow: (|slideshowButton| "Ctrl+W") Opens slideshow.
-* Skip forward to new object: (|skipToNewIdAction| "Page up") Skip forward to the frame where a new object appears.
-* Overlay channels: (|overlayButton|) Right-click on the button to overlay additional channels. To overlay a different channel right-click on the colorbar on the left of the image. Use the colorbar ticks to adjust the selected channel's intensity. You can also adjust the opacity of the selected channel with the "Alpha <channel_name>" scrollbar below the image. 
-    * NOTE: This button has a green background if you successfully 'loaded fluorescence data'
-* Add points layer: (|addPointsLayerAction|) Add points layer as a scatter plot
-* Add contours from different segmentation file: (|overlayLabelsButton|) Add contours layer from another segmentation file
-* Ruler: (|rulerButton|) Draw a straight line and show its length. Length is displayed on the bottom-right corner.
+* **Find ID (** |findIdAction| **"Ctrl+F"):** Find and highlight ID. Press "Esc" to clear highlighted object.
+* **Open Slideshow (** |slideshowButton| **"Ctrl+W"):** Opens slideshow.
+* **Skip forward to new object (** |skipToNewIdAction| **"Page up"):** Skip forward to the frame where a new object appears.
+* | **Overlay channels (** |overlayButton| **):** Right-click on the button to overlay additional channels. To overlay a different channel right-click on the colorbar on the left of the image. Use the colorbar ticks to adjust the selected channel's intensity. You can also adjust the opacity of the selected channel with the "Alpha <channel_name>" scrollbar below the image. 
+  | Note: This button has a green background if you successfully 'loaded fluorescence data'
+* **Add points layer (** |addPointsLayerAction| **):** Add points layer as a scatter plot
+* **Add contours from different segmentation file (** |overlayLabelsButton| **):** Add contours layer from another segmentation file
+* **Ruler (** |rulerButton| **):** Draw a straight line and show its length. Length is displayed on the bottom-right corner.
 
 Edit tools: Segmentation and tracking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* Brush: (|brushButton| "B")  Edit segmentation labels with a circular brush.
+* **Brush (** |brushButton| **"B"):**
+    * Edit segmentation labels with a circular brush.
     * Increase brush size with "UP/DOWN" arrows on the keyboard.
     * Default behaviour:
         * Painting on the background will create a new label.
@@ -313,7 +314,8 @@ Edit tools: Segmentation and tracking
           top-right toolbar.
         * Enter the ID that you want to paint.
           NOTE: use the power brush to draw ABOVE the existing labels.
-* Eraser (|eraserButton| "X")  Erase segmentation labels with a circular eraser.
+* **Eraser (** |eraserButton| **"X"):**
+    * Erase segmentation labels with a circular eraser.
     * Increase eraser size with "UP/DOWN" arrows on the keyboard.
     * Default behaviour:
         * Starting to erase from the background (cursor is a red circle) 
@@ -323,31 +325,33 @@ Edit tools: Segmentation and tracking
         * To enforce erasing all labels no matter where you start from
           double-press "X" key. If double-press is successfull,
           then eraser button is red and eraser cursor always red.
-* Curvature Tool: (|curvToolButton| "C") Toggle "Curvature tool" ON/OFF. ACTION: Left-clicks for manual spline anchors, right button for drawing auto-contour.
-* Magic Wand: (|wandToolButton| "W") Toggle "Magic wand tool" ON/OFF. ACTION: Left-click for single selection or left-click and then drag for continous selection.
-* Copy lost contour: (|copyContourButton| "V") Toggle "Copy contour mode from lost object" ON/OFF. ACTION: Hover onto lost object contour --> right-click to copy the contour as a new object.
-* Magic labeller: (|labelRoiButton| "L") Toggle "Magic labeller" ON/OFF. ACTION: Draw a rectangular ROI around object(s) you want to segment. Draw with LEFT button to label with last used model. Draw with RIGHT button to choose a different segmentation model.
-* Segment: (|segmentToolAction| "R") Segment with last used model and last used parameters. If you never selected a segmentation model before, you will be asked to choose it and initialize its parameters.
-* Manual background: (|manualBackgroundButton| "G") Toggle "Manual background" mode ON/OFF. 
+* **Curvature Tool (** |curvToolButton| **"C"):** Toggle "Curvature tool" ON/OFF. ACTION: Left-clicks for manual spline anchors, right button for drawing auto-contour.
+* **Magic Wand (** |wandToolButton| **"W"):** Toggle "Magic wand tool" ON/OFF. ACTION: Left-click for single selection or left-click and then drag for continous selection.
+* **Copy lost contour (** |copyContourButton| **"V"):** Toggle "Copy contour mode from lost object" ON/OFF. ACTION: Hover onto lost object contour --> right-click to copy the contour as a new object.
+* **Magic labeller (** |labelRoiButton| **"L"):** Toggle "Magic labeller" ON/OFF. ACTION: Draw a rectangular ROI around object(s) you want to segment. Draw with LEFT button to label with last used model. Draw with RIGHT button to choose a different segmentation model.
+* **Segment (** |segmentToolAction| **"R"):** Segment with last used model and last used parameters. If you never selected a segmentation model before, you will be asked to choose it and initialize its parameters.
+* **Manual background (** |manualBackgroundButton| **"G"):** 
+    * Toggle "Manual background" mode ON/OFF. 
     * ACTIONs:
         1. Select object to copy its shape.
         2. Place the new shape on the background close to the source object.
         3. Left-click to set the background ROI of the selected object.
     * Note: right-click on a background ROI to remove it.
     * HELP: Use this function if you need to set the background level specific for each object. Cell-ACDC will save the metrics `amount`, `concentration` and `corrected_mean` where the background correction will be performed by subtracting the mean of the signal in the background ROI (for each object).
-* Delete everything outside segmented areas: (|delObjsOutSegmMaskAction|) Select a segmentation file and delete all objects on the background
-* Hull contour: (|hullContToolButton| "K") Toggle "Hull contour" ON/OFF. ACTION: Right-click on a cell to replace it with its hull contour. Use it to fill cracks and holes.
-* Fill holes: (|hullContToolButton| "F") Toggle "Fill holes" ON/OFF. ACTION: right-click on a cell to fill holes.
-* Move label: (|moveLabelToolButton| "P") Toggle "Move label (a.k.a. mask)" ON/OFF. ACTION: right-click drag and drop a labels to move it around.
-* Expand/Shrink label: (|expandLabelToolButton| "E") Toggle "Expand/Shrink label (a.k.a. masks)" ON/OFF. ACTION: Leave mouse cursor on the label you want to expand/shrink and press arrow up/down on the keyboard to expand/shrink the mask.
-* Edit ID: (|editIDbutton| "N") Toggle "Edit ID" mode ON/OFF. EXAMPLE: manually change ID of a cell. ACTION: right-click on cell.
-* Manual bud separation: (|separateBudButton| "S") Toggle "Automatic/manual separation" mode ON/OFF. EXAMPLE: separate mother-bud fused together or separate objects that have the same ID. ACTION: right-click for automatic and Ctrl+right-click for manual.
-* Merge IDs: (|mergeIDsButton| "M") Toggle "Merge IDs" mode ON/OFF. EXAMPLE: merge/fuse two cells together. ACTION: right-click.
-* Select objects to keep: (|keepIDsButton| "K") Toggle "Select objects to keep" mode ON/OFF. EXAMPLE: Select the objects to keep. Press "Enter" to confirm selection or "Esc" to clear the selection. After confirming, all the NON selected objects will be deleted. ACTION: right- or left-click on objects to keep.
-* Remove object from analysis: (|binCellButton|) Toggle "Annotate cell as removed from analysis" mode ON/OFF. EXAMPLE: annotate that a cell is removed from downstream analysis. ``is_cell_excluded`` set to ``True`` in ``acdc_output.csv`` table. ACTION: right-click.
-* Annotate cell as dead: (|ripCellButton| "D") Toggle "Annotate cell as dead" mode ON/OFF. EXAMPLE: annotate that a cell is dead. ``is_cell_dead`` set to ``True`` in ``acdc_output.csv`` table.
-* Add deletion ROI: (|addDelRoiAction|) Add resizable rectangle. Every ID touched by the rectangle will be automatically deleted. Moving and resizing the rectangle will restore deleted IDs if they are not touched by it anymore. To delete rectangle ``right-click on it --> remove``.
-* Add poly-line deletion ROI: (|addDelPolyLineRoiAction|) Add custom poly-line deletion ROI. Every ID touched by the ROI will be automatically deleted.
+* **Delete everything outside segmented areas (** |delObjsOutSegmMaskAction| **):** Select a segmentation file and delete all objects on the background
+* **Hull contour (** |hullContToolButton| **"K"):** Toggle "Hull contour" ON/OFF. ACTION: Right-click on a cell to replace it with its hull contour. Use it to fill cracks and holes.
+* **Fill holes (** |hullContToolButton| **"F"):** Toggle "Fill holes" ON/OFF. ACTION: right-click on a cell to fill holes.
+* **Move label (** |moveLabelToolButton| **"P"):** Toggle "Move label (a.k.a. mask)" ON/OFF. ACTION: right-click drag and drop a labels to move it around.
+* **Expand/Shrink label (** |expandLabelToolButton| **"E"):** Toggle "Expand/Shrink label (a.k.a. masks): ON/OFF. ACTION: Leave mouse cursor on the label you want to expand/shrink and press arrow up/down on the keyboard to expand/shrink the mask.
+* **Edit ID (** |editIDbutton| **"N"):** Toggle "Edit ID" mode ON/OFF. EXAMPLE: manually change ID of a cell. ACTION: right-click on cell.
+* **Manual bud separation (** |separateBudButton| **"S"):** Toggle "Automatic/manual separation" mode ON/OFF. EXAMPLE: separate mother-bud fused together or separate objects that have the same ID. ACTION: right-click for automatic and Ctrl+right-click for manual.
+* **Merge IDs (** |mergeIDsButton| **"M"):** Toggle "Merge IDs" mode ON/OFF. EXAMPLE: merge/fuse two cells together. ACTION: right-click.
+* **Select objects to keep (** |keepIDsButton| **"K"):** Toggle "Select objects to keep" mode ON/OFF. EXAMPLE: Select the objects to keep. Press "Enter" to confirm selection or "Esc" to clear the selection. After confirming, all the NON selected objects will be deleted. ACTION: right- or left-click on objects to keep.
+* **Remove object from analysis (** |binCellButton| **):** Toggle "Annotate cell as removed from analysis" mode ON/OFF. EXAMPLE: annotate that a cell is removed from downstream analysis. ``is_cell_excluded`` set to ``True`` in ``acdc_output.csv`` table. ACTION: right-click.
+* **Annotate cell as dead (** |ripCellButton| **"D"):** Toggle "Annotate cell as dead" mode ON/OFF. EXAMPLE: annotate that a cell is dead. ``is_cell_dead`` set to ``True`` in ``acdc_output.csv`` table.
+* **Add deletion ROI (** |addDelRoiAction| **):** Add resizable rectangle. Every ID touched by the rectangle will be automatically deleted. Moving and resizing the rectangle will restore deleted IDs if they are not touched by it anymore. To delete rectangle ``right-click on it --> remove``.
+* **Add poly-line deletion ROI (** |addDelPolyLineRoiAction| **):** 
+    * Add custom poly-line deletion ROI. Every ID touched by the ROI will be automatically deleted.
     * USAGE:
         1.  Activate the button.
         2.  Left-click on the LEFT image to add a new anchor point.
@@ -356,15 +360,15 @@ Edit tools: Segmentation and tracking
         5.  Add a new anchor point on an existing segment with right-click on the segment.
     * Moving and reshaping the ROI will restore deleted IDs if they are not touched by it anymore. 
     * To delete the ROI ``right-click on it --> remove``.
-* Delete bordering objects: (|delBorderObjAction|) Remove segmented objects touching the border of the image.
-* Repeat tracking: (|repeatTrackingAction| "Shift+T") Repeat tracking on current frame. Tracking method can be changed in ``Tracking --> Select real-time tracking algorithm``
-* Manual tracking: (|manualTrackingButton| "T") Toggle "Manual tracking" mode ON/OFF. ACTION: select ID to track and right-click on an object to assign that ID.
-* Reset last segmented frame: (|reinitLastSegmFrameAction|) Reset last segmented frame to current one. NOTE: This will re-enable real-time tracking for all the future frames.
+* **Delete bordering objects (** |delBorderObjAction| **):** Remove segmented objects touching the border of the image.
+* **Repeat tracking (** |repeatTrackingAction| **"Shift+T"):** Repeat tracking on current frame. Tracking method can be changed in ``Tracking --> Select real-time tracking algorithm``
+* **Manual tracking (** |manualTrackingButton| **"T"):** Toggle "Manual tracking" mode ON/OFF. ACTION: select ID to track and right-click on an object to assign that ID.
+* **Reset last segmented frame (** |reinitLastSegmFrameAction| **):** Reset last segmented frame to current one. NOTE: This will re-enable real-time tracking for all the future frames.
 
 Edit tools: Cell cycle analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* Assign mother to bud: (|assignBudMothButton| "A") Toggle "Assign bud to mother cell" mode ON/OFF. ACTION: Press with right button on bud and release on mother (right-click drag-and-drop).
-* Annotate as unknown history: (|setIsHistoryKnownButton| "U") Toggle "Annotate unknown history" mode ON/OFF. EXAMPLE: useful for cells appearing from outside of the field of view. ACTION: Right-click on cell.
-* Automatically assign bud to mother: (|assignBudMothAutoAction|) Automatically assign buds to mothers using YeastMate.
-* Manually edit cell cycle annotations table: (|editCcaToolAction| "Ctrl+Shift+P") Manually edit cell cycle annotations table.
-* Re-initialize cell cycle annotations table: (|reInitCcaAction|) Re-initialize cell cycle annotations table from this frame onward. NOTE: This will erase all the already annotated future frames information (from the current session not the saved information).
+* **Assign mother to bud (** |assignBudMothButton| **"A"):** Toggle "Assign bud to mother cell" mode ON/OFF. ACTION: Press with right button on bud and release on mother (right-click drag-and-drop).
+* **Annotate as unknown history (** |setIsHistoryKnownButton| **"U"):** Toggle "Annotate unknown history" mode ON/OFF. EXAMPLE: useful for cells appearing from outside of the field of view. ACTION: Right-click on cell.
+* **Automatically assign bud to mother (** |assignBudMothAutoAction| **):** Automatically assign buds to mothers using YeastMate.
+* **Manually edit cell cycle annotations table (** |editCcaToolAction| **"Ctrl+Shift+P"):** Manually edit cell cycle annotations table.
+* **Re-initialize cell cycle annotations table (** |reInitCcaAction| **):** Re-initialize cell cycle annotations table from this frame onward. NOTE: This will erase all the already annotated future frames information (from the current session not the saved information).

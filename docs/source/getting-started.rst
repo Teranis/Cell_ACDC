@@ -185,6 +185,7 @@ Data such as the selected frame is stored in segmInfo.csv, while aligned.npz sto
 .. figure:: https://github.com/Teranis/Cell_ACDC/blob/UserManual/docs/source/images/DataPrep4.png?raw=true
     :target: https://github.com/Teranis/Cell_ACDC/blob/UserManual/docs/source/images/DataPrep4.png
     :alt: Data preparation: Data structure
+    :width: 300
 
 Segmentation and tracking
 -------------------------
