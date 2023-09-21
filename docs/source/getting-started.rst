@@ -223,6 +223,8 @@ Correcting Tracking and Segmentation Mistakes, Cell Cycle Annotation
 --------------------------------------------------------------------
 **3. Launching GUI…**
 
+The GUI is very useful to review and annotate data. For a full breakdown of all tools, please see the section `GUI tools <https://cell-acdc.readthedocs.io/en/latest/tooltips.html>`__
+
 Correcting Tracking and Segmentation Mistakes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The first step in using the GUI is to load a file. For this, click on "File" in the top ribbon and select "Load folder". This will open a window which prompts you to select a folder. After selecting the folder containing the information for the position you want to analyse, you will be prompted to select the channel you want to view as well as double check the metadata.
