@@ -65,9 +65,10 @@ A GUI-based Python framework for **segmentation**, **tracking**, **cell cycle an
 
 Overview of pipeline and GUI
 
+.. contents::
+
 Overview
 ========
-
 Let's face it, when dealing with segmentation of microscopy data we
 often do not have time to check that **everything is correct**, because
 it is a **tedious** and **very time consuming process**. Cell-ACDC comes
@@ -98,7 +99,6 @@ our* \ `publication <https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-0
 
 Is it only about segmentation?
 ------------------------------
-
 Of course not! Cell-ACDC automatically computes **several single-cell
 numerical features** such as cell area and cell volume, plus the mean,
 max, median, sum and quantiles of any additional fluorescent channel's
@@ -113,15 +113,22 @@ Finally, we provide Jupyter notebooks to **visualize** and interactively
 
 Bidirectional microscopy shift error correction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Is every second line in your files from your bidirectional microscopy
 shifted? Look
 `here <https://github.com/SchmollerLab/Cell_ACDC/blob/main/cellacdc/scripts/README.md>`__
 for further information on how to correct your data.
 
+Resources
+=========
+- Please find a complete user guide `here <https://cell-acdc.readthedocs.io/en/latest/>`__.
+- `Installation guide<#installation-using-anaconda-recommended>`__.
+- `Publication <https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-022-01372-6>`__ of Cell-ACDC.
+- `Forum <https://github.com/SchmollerLab/Cell_ACDC/discussions>`__ for discussions (feel free to **ask any question**).
+- **Report issues, request a feature or ask questions** by opening a new issue `here <https://github.com/SchmollerLab/Cell_ACDC/issues>`__.
+- X `thread <https://twitter.com/frank_pado/status/1443957038841794561?s=20>`__.
+
 Contact
 =======
-
 **Do not hesitate to contact me** here on GitHub (by opening an issue)
 or directly at my email padovaf@tcd.ie for any problem and/or feedback
 on how to improve the user experience!

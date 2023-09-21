@@ -76,5 +76,6 @@ Contents
    installation
    getting-started
    tooltips
+   bdir_corr.rst
    release-notes
    other
