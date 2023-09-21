@@ -907,7 +907,14 @@ class guiWin(QMainWindow):
 
     def setTooltips(self): #laoding tooltips for GUI from .\Cell_ACDC\docs\source\tooltips.rst
         tooltips = load.get_tooltips_from_docs()
+
         for key, tooltip in tooltips.items():
+            setShortcut = getattr(self, key).shortcut().toString()
+            if setShortcut != "":
+                tooltip = re.sub(r'Shortcut: \"(.*)\"', f"Shortcut: \"{setShortcut}\"", tooltip)
+            else:
+                tooltip = re.sub(r'Shortcut: \"(.*)\"', f"Shortcut: \"No shortcut\"", tooltip)
+
             getattr(self, key).setToolTip(tooltip)
 
     def run(self, module='acdc_gui', logs_path=None):
@@ -988,6 +995,9 @@ class guiWin(QMainWindow):
         self.gui_createCursors()
         self.gui_createActions()
         self.gui_createMenuBar()
+
+        
+
         self.gui_createToolBars()
         self.gui_createControlsToolbar()
         self.gui_createShowPropsButton()
@@ -1023,7 +1033,7 @@ class guiWin(QMainWindow):
         self.initShortcuts()
         self.show()
         # self.installEventFilter(self)
-        self.setTooltips()
+        
         self.logger.info('GUI ready.')
     
     def initProfileModels(self):
@@ -1736,6 +1746,8 @@ class guiWin(QMainWindow):
         self.editToolBar.setVisible(False)
         self.navigateToolBar.setVisible(False)
 
+        self.setTooltips()
+
         self.gui_populateToolSettingsMenu()
 
         self.gui_createAnnotateToolbar()
@@ -2332,11 +2344,10 @@ class guiWin(QMainWindow):
         self.settingsMenu.addSeparator()
 
         for button in self.checkableQButtonsGroup.buttons():
-            printl(button.toolTip())
             if button.toolTip() == "":
                 toolName = "MISSING"
             else:
-                toolName = re.findall('Name: (.*) ', button.toolTip())[0]
+                toolName = re.findall(r'Name: (.*)', button.toolTip())[0]
             menu = self.settingsMenu.addMenu(f'{toolName} tool')
             action = QAction(button)
             action.setText('Keep tool active after using it')
@@ -2645,10 +2656,10 @@ class guiWin(QMainWindow):
         self.normalizeQActionGroup.addAction(self.normalizeByMaxAction)
 
         self.zoomToObjsAction = QAction(
-            'Zoom to objects  (shortcut: H key)', self
+            'Zoom to objects  (Shortcut: H key)', self
         )
         self.zoomOutAction = QAction(
-            'Zoom out  (shortcut: double press H key)', self
+            'Zoom out  (Shortcut: double press H key)', self
         )
 
         self.relabelSequentialAction = QAction(
@@ -3105,7 +3116,7 @@ class guiWin(QMainWindow):
             'Resolution of the text annotations. High resolution results '
             'in slower update of the annotations.\n'
             'Not recommended with a number of segmented objects > 500.\n\n'
-            'SHORTCUT: "Y" key'
+            'Shortcut: "Y" key'
         )
         highResLabel = QLabel('High resolution')
         highResLabel.setToolTip(highLowResTooltip)
@@ -12722,7 +12733,7 @@ class guiWin(QMainWindow):
                 f'Type: {Type}\n\n'
                 f'Usage: activate the button and RIGHT-CLICK on cell to annotate\n\n'
                 f'Description: {selectedAnnot["description"]}\n\n'
-                f'SHORTCUT: "{keySequence}"'
+                f'Shortcut: "{keySequence}"'
             )
             keepActive = selectedAnnot['keepActive']
             isHideChecked = selectedAnnot['isHideChecked']
@@ -17550,13 +17561,6 @@ class guiWin(QMainWindow):
         self.ax1.addItem(scatterItem)
 
         toolButton = widgets.PointsLayerToolButton(symbol, color, parent=self)
-        toolTip = (
-            f'"{self.addPointsWin.layerType}" points layer\n\n'
-            f'SHORTCUT: "{self.addPointsWin.shortcut}"'
-        )
-        if hasattr(self.addPointsWin, 'description'):
-            toolTip = f'{toolTip}\nDescription: {self.addPointsWin.description}'
-        toolButton.setToolTip(toolTip)
         toolButton.setCheckable(True)
         toolButton.setChecked(True)
         if self.addPointsWin.keySequence is not None:
@@ -18280,7 +18284,7 @@ class guiWin(QMainWindow):
             else:
                 widget.setShortcut(shortcut)
             s = widget.toolTip()
-            toolTip = re.sub(r'SHORTCUT: "(.*)"', f'SHORTCUT: "{text}"', s)
+            toolTip = re.sub(r'Shortcut: "(.*)"', f'Shortcut: "{text}"', s)
             widget.setToolTip(toolTip)
         
         if not save: 

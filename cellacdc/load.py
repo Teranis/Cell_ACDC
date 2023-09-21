@@ -2644,5 +2644,5 @@ def get_tooltips_from_docs(): #gets tooltips for GUI from .\Cell_ACDC\docs\sourc
             desc = format_bullet_points(desc)
             desc = format_number_list(desc)
 
-            tipdict[name] = f"Name: {title} \nShortcut: {shortcut}\n\n{desc}"
+            tipdict[name] = f"Name: {title}\nShortcut: {shortcut}\n\n{desc}"
     return tipdict
