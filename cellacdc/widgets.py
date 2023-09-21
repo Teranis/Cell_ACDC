@@ -3030,6 +3030,8 @@ class ShortcutLineEdit(QLineEdit):
         modifers_value = event.modifiers().value if PYQT6 else event.modifiers()
         keySequence = QKeySequence(modifers_value | event.key()).toString()
 
+        modifers_value = event.modifiers().value if PYQT6 else event.modifiers()
+        keySequence = QKeySequence(modifers_value | event.key()).toString()
         keySequence = keySequence.encode('ascii', 'ignore').decode('utf-8')
         self.setText(keySequence)
         self.key = event.key()
