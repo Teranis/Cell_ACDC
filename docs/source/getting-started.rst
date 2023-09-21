@@ -2,6 +2,7 @@ From 0 to Cell-ACDC mastery: A complete guide
 =============================================
 
 This guide should provide you with everything that you need to know about Cell-ACDC to become a true master. In the future, a abridged version of this guide as well as video tutorials will be added.
+During several points during the usage of Cell-ACDC, the program may become unresponsive. **DO NOT CLODE CELL-ACDC**. Instead, check the console for progress or error massages.
 
 .. contents::
 
@@ -81,9 +82,9 @@ This will open a window in which you can choose how you want to proceed.
 
 .. note::
 
-    Cell-ACDC can use the Bio-Formats or the AICSlmagelO libraries to read microscopy files.
+    Cell-ACDC can use `Bio-Formats <https://www.openmicroscopy.org/bio-formats/>`__ or the AICSlmagelO libraries to read microscopy files.
 
-    Bio-Formats requires Java and a python package called javabridge, that will be automatically installed if missing. We recommend using Bio-Formats, since it can read the metadata of the file, such as pixel size, numerical aperture etc.
+    `Bio-Formats <https://www.openmicroscopy.org/bio-formats/>`__ requires Java and a python package called `Javabridge <hhttps://pypi.org/project/javabridge/>`__, that will be automatically installed if missing. We recommend using Bio-Formats, since it can read the metadata of the file, such as pixel size, numerical aperture etc.
 
     If Bio-Formats fails, try using AICSlmagelO.
 
@@ -99,16 +100,25 @@ After choosing an option, another window will open prompting you to select what 
 
 * NONE of the above
 
-Please select the appropriate option. Afterwards, you are prompted to create an empty folder in which only the microscopy file(s) are present. After doing so, select "Done". Afterwards, you will be prompted to select this folder. After selecting the destination folder, which by default is the folder you selected in the step before, Cell-ACDC will attempt to load OEM metadata.
+Please select the appropriate option. Afterwards, you are prompted to create an empty folder in which only the microscopy file(s) are present. After doing so, select "Done". Next, you will be prompted to select this folder. After selecting the destination folder, which by default is the folder you selected in the step before, Cell-ACDC will attempt to load OEM metadata.
 
-After a short wait, a window with the extracted metadata should appear. Make sure to double check all values and **change "Order of Dimensions"** to the appropriate value. To double check if the dimensions are in the correct order, press on the eye icon next to "Channel 0" and use the scrollbars to go through the z coordinate and time coordinate. Once all values are in order, press "Ok". If the values are the same for all positions, feel free to click "Use the above metadata for all the next positions". Note that if you have several files, and you press "Ok" and not one of the two other options, the process will stop after each file, and you need to confirm the metadata again.
+.. |eyeplusicon| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/eye-plus.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/eye-plus.svg
+    :alt: eye-plus icon
+    :height: 16px
+    :width: 16px
+
+A window with the extracted metadata should appear, which may take a few seconds to load. Make sure to double check all values and **change "Order of Dimensions"** to the appropriate value. To double check if the dimensions are in the correct order, select the eye icon (|eyeplusicon|) next to "Channel 0" and use the scrollbars to go through the z-coordinate and time-coordinate. Once all values are in order, press "Ok". If the values are the same for all positions, feel free to click "Use the above metadata for all the next positions".
+
+.. note:: 
+    that if you have several files, and you press "Ok" and not one of the two other options, the process will stop after each file, and you need to confirm the metadata again.
 
 Each position is saved in a separate folder. The metadata are stored both in a TXT and SCV file, while the channels are stored in separate TIF files.
 
 .. note:: 
     A computer with sufficient RAM is needed in this step! The required amount is heavily reliant on the size of the project.
 
-    It is good practice to keep the original files for future reference, even though they are not needed in the future steps.
+    It is good practice to keep the original files for future reference, even though they are not needed in future steps.
 
 .. figure:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/DataStruc1.png?raw=true
     :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/DataStruc1.png
@@ -142,7 +152,65 @@ Preparing data for further analysis
 -----------------------------------
 **1. Launch data prep module…**
 
-Through pressing "Launch data prep module…" in the main menu, the data preparation module can be launched. In this step, a sharp image from a z stack can be selected, and afterwards the images can be automatically aligned in a way that cells stay in one position for time lapse experiments.
+.. |starticon| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/start.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/start.svg
+    :alt: start icon
+    :height: 16px
+    :width: 16px
+
+.. |bkgrRoiicon| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/bkgrRoi.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/bkgrRoi.svg
+    :alt: bkgrRoi icon
+    :height: 16px
+    :width: 16px
+
+.. |add_crop_ROI| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/add_crop_ROI.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/add_crop_ROI.svg
+    :alt: add_crop_ROI icon
+    :height: 16px
+    :width: 16px
+
+.. |crop| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/crop.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/crop.svg
+    :alt: crop icon
+    :height: 16px
+    :width: 16px
+
+.. |cropZ| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/cropZ.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/cropZ.svg
+    :alt: cropZ icon
+    :height: 16px
+    :width: 16px
+
+.. |zforw| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/zforw.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/zforw.svg
+    :alt: zforw icon
+    :height: 16px
+    :width: 16px
+
+.. |zback| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/zback.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/zback.svg
+    :alt: zback icon
+    :height: 16px
+    :width: 16px
+
+.. |interp| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/interp.svg
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/interp.svg
+    :alt: interp icon
+    :height: 16px
+    :width: 16px
+
+Through pressing "Launch data prep module…" in the main menu, the module can be launched. In this step you can:
+
+a) Select a z-slice or z-projection for segmentation of 3D z-stacks.
+
+b) Align frames of time-lapse microscopy data (RECOMMENDED, it is revertible).
+
+c) Calculate background metrics (median, mean etc.) from one or more rectangular areas. The median will be used later for background subtraction. The areas are movable and resizable.
+
+d) Select a region of interest (ROI) for segmentation.
+
+e) Crop images to reduce memory usage (RECOMMENDED, if possible).
 
 The alignment process is done using the function ``skimage.registration.phase_cross_correlation`` from the `scikit-image library <https://scikit-image.org/>`__.
 
@@ -150,21 +218,25 @@ To start off, click "File" in the top ribbon and then select "Open". Select the 
 
 In the next menu, select the desired number of frames and z-slices. Here you can also add another custom field, which will be saved in the metadata table. Later, this will be added as a column to the output table.
 
-Next, go through each frame and select the z-slice which is the sharpest (if your data is 3D).  Using the buttons in the top button row, you can apply the current slice to all future or past frames, as well as apply a gradient from the current frame to the first one.
+Next, go through each frame and select the z-slice which is the sharpest (if your data is 3D). Using the buttons in the top button row, you can apply the current slice to all future (|zforw|) or past (|zback|) frames, as well as apply a gradient (|interp|) from the current frame to the first one. The selection is saved automatically in (almost) real time. If you only need to do this step, feel free to close the window after finishing.
 
 Alternatively, a projection can be used. This is done through the projection drop down menu in the bottom right.
 
-Next, select "start" from the buttons bar. This will start the alignment process. 
+Next, select "start" (|starticon|) from the buttons bar. This will start the alignment process. The window may become unresponsive, please check the terminal for progress.
 
 .. note::
+
     Do this even if you don't have a time lapse experiment, as it allows you to carry on to the next step and won't change the data.
 
-Afterwards, the region of interest (ROI) as well as the background ROI (Bkgr. ROI) can be adjusted. This is done through drag and drop on the edges and resizing on the turquoise rhombuses. Make sure that the ROI covers all cells of interest on all frames and that the Bkgr. ROI is on an area without cells. Once all is set, press the "Cut" button. **This will overwrite the previous files**
+    For time-lapse microscopy you can load only one position at a time. Select multiple positions only if you have single 3D z-stacks or single 2D images.
+
+
+Afterwards, the region of interest (ROI) as well as the background ROI (Bkgr. ROI) can be adjusted. This is done through drag and drop on the edges and resizing on the turquoise rhombuses. Make sure that the ROI covers all cells of interest on all frames and that the Bkgr. ROI is on an area without cells. Multiple ROIs (|add_crop_ROI|) and Bkgr. ROIs (|bkgrRoiicon|) can be added through the corresponding buttons. Right click on one of the frames to show an interaction menu through which you can remove it. Once all is set, press the "Crop" (|crop|) button. **This will overwrite the previous files**. The window may become unresponsive. Alternatively, only a single stack can be cropped using the "Crop only current stack" (|cropZ|) button. 
+
 
 .. note::
-    If the Bkgr. ROI is not visible, a standard Bkgr. ROI is applied. If you want to have a Bkgr. ROI, press the Bkgr. ROI button. 
 
-Multiple ROIs and Bkgr. ROIs can be added through the corresponding buttons. Right click on one of the frames to show an interaction menu through which you can remove it.
+    If the Bkgr. ROI is not visible, a standard Bkgr. ROI is applied. If you want to set a Bkgr. ROI, press the Bkgr. ROI button (|bkgrRoiicon|) which should add one.
 
 Data such as the selected frame is stored in segmInfo.csv, while aligned.npz stores the alignment data.
 
@@ -191,13 +263,13 @@ Segmentation and tracking
 -------------------------
 **2. Launch segmentation module…**
 
-This module can be used to segment and track object in your data. A plethora of options are available already, and new ones are added constantly. You can also add your own models, a tutorial for this will be added in the future.
+This module can be used to segment and track objects in your data. A plethora of options are available already, and new ones are added constantly. You can also add your own models, a tutorial for this will be added in the future.
 
-Upon launching the module, you first will be prompted to select a folder. This process is the same as before. Next, like before you are prompted to select a channel which should be used for segmentation.
+Upon launching the module, you first will be prompted to select a folder. This process is the same as before. Next, like before, you are prompted to select a channel which should be used for segmentation.
 
 After a short wait, you are prompted to select the model you want to use for **segmentation**, after which one needs to confirm the parameters for segmentation as well as post processing.
 
-Next, you can select a stop frame if you don't want to segment and track the entire experiment. Lastly, you need to select the model which should be used for tracking. The process now begins, and you can lay back and watch the computer do work for you.
+Next, you can select a stop frame if you don't want to segment and track the entire experiment. Lastly, you need to select the model which should be used for **tracking**. The process now begins, and you can lay back and watch the computer work for you.
 
 .. figure:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/Seg1.png?raw=true
     :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/Seg1.png
