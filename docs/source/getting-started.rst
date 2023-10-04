@@ -2,7 +2,7 @@ From 0 to Cell-ACDC mastery: A complete guide
 =============================================
 
 This guide should provide you with everything that you need to know about Cell-ACDC to become a true master. In the future, a abridged version of this guide as well as video tutorials will be added.
-During several points during the usage of Cell-ACDC, the program may become unresponsive. **DO NOT CLODE CELL-ACDC**. Instead, check the console for progress or error massages.
+During several points during the usage of Cell-ACDC, the program may become unresponsive. **DO NOT CLOSE CELL-ACDC**. Instead, check the console for progress or error massages.
 
 .. contents::
 
@@ -10,12 +10,9 @@ During several points during the usage of Cell-ACDC, the program may become unre
 Running Cell-ACDC
 -----------------
 
-1. Open a terminal (on Windows use the Anaconda Prompt if you installed
-   with ``conda``)
-2. Activate the environment (conda: ``conda activate acdc``, pip on
-   Windows: ``.\env\Scripts\activate``, pip on Unix:
-   ``source env/bin/activate``)
-3. Run the command ``acdc`` or ``cellacdc``
+1. Open a **terminal** (on Windows use the **Anaconda Prompt** if you installed with ``conda``)
+2. **Activate** the **environment** (conda: ``conda activate acdc``, pip on Windows: ``.\env\Scripts\activate``, pip on Unix: ``source env/bin/activate``) 
+3. **Run** the command ``acdc`` or ``cellacdc``
 
 The Main Menu
 -------------
@@ -295,17 +292,54 @@ Correcting Tracking and Segmentation Mistakes, Cell Cycle Annotation
 --------------------------------------------------------------------
 **3. Launching GUI…**
 
-The GUI is very useful to review and annotate data. For a full breakdown of all tools, please see the section `GUI tools <https://cell-acdc.readthedocs.io/en/latest/tooltips.html>`__
+.. |loadfolder| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/3dcf5611281c35e3cf8b7676ca7c00c9b17ee8e7/cellacdc/resources/icons/folder-open.svg
+    :target: https://github.com/SchmollerLab/Cell_ACDC/blob/main/cellacdc/resources/icons/folder-open.svg
+    :alt: Eraser icon
+    :height: 16px
+    :width: 16px
+
+The GUI is very useful to review and annotate data. For a full breakdown of all tools, please see the section `GUI tools <https://cell-acdc.readthedocs.io/en/latest/tooltips.html>`__.
+Its main functions are:
+
+    a) **Test** which **segmentation method** works best for your dataset.
+    b) **Correct** segmentation and tracking errors.
+    c) Cell cycle **annotations**.
+
+Usage with time lapse data
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+For time-lapse data, you can load one position (one video) at a time. With this data, the GUI has three modes that can be toggled from the selector on the toolbar: 
+
+ 1. Viewer mode (default mode, used only for visualisation).
+ 2. Cell cycle analysis mode.
+ 3. Segmentation and tracking mode.
+   
+The main idea is that when you visit a frame for the first time, some automatic functions are triggered: tracking in `"Segmentation and tracking" <https://cell-acdc.readthedocs.io/en/latest/getting-started.html#correcting-tracking-and-segmentation-mistakes>`__ mode, mother-bud pairing in `"Cell cycle analysis" <https://cell-acdc.readthedocs.io/en/latest/getting-started.html#cell-cycle-annotation>`__ mode. See the `GUI tools section <https://cell-acdc.readthedocs.io/en/latest/tooltips.html>`__ for a run down of all tools.
+
+These functions are not triggered when you visualize a frame that you already visited before.
+
+Usage with snapshot data (no time-lapse)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For snapshot data, you can load multiple positions at the same time. When prompted, simply click on multiple selection button, and then select the positions with ``Ctrl+click`` for selecting specific positions, or ``Shift+click`` to select a range, or ``Ctrl+A`` to select all.
+
+Once loaded, you can navigate through positions with left and right arrow or with the position scrollbar below the left image.
+
+See sections `"Segmentation and tracking" <https://cell-acdc.readthedocs.io/en/latest/getting-started.html#correcting-tracking-and-segmentation-mistakes>`__ and `"Cell cycle analysis" <https://cell-acdc.readthedocs.io/en/latest/getting-started.html#cell-cycle-annotation>`__ for further information. See the `GUI tools section <https://cell-acdc.readthedocs.io/en/latest/tooltips.html>`__ for a run down of all tools.
 
 Correcting Tracking and Segmentation Mistakes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The first step in using the GUI is to load a file. For this, click on "File" in the top ribbon and select "Load folder". This will open a window which prompts you to select a folder. After selecting the folder containing the information for the position you want to analyse, you will be prompted to select the channel you want to view as well as double check the metadata.
+The first step in using the GUI is to load a file. For this, click on "File" in the top ribbon and select "Load folder", or directly select the corresponding button (|loadfolder|). This will open a window which prompts you to select a folder. After selecting the folder containing the information for the position you want to analyse, you will be prompted to select the channel you want to view as well as double check the metadata.
+
+Alternatively, if only a single image or video should be analysed, select ``File → Open image/video file…``.
+
+.. note:: 
+    If you load a single image or video file without the required data structure, the Cell-ACDC output will be saved in a sub-folder called ``<timestamp>_acdc_output``.
 
 After first loading data, you will notice that the current mode is set to "Viewer". This allows you to freely browse through all images, which can be useful for gaining an overview of the data.
 
 To start editing, change the mode to "Segmentation and Tracking".
 
-Important tools:
+**Important tools:**
 
 .. |eraser| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/3dcf5611281c35e3cf8b7676ca7c00c9b17ee8e7/cellacdc/resources/icons/eraser.svg
     :target: https://github.com/SchmollerLab/Cell_ACDC/blob/main/cellacdc/resources/icons/eraser.svg
@@ -373,6 +407,12 @@ Important tools:
     :height: 16px
     :width: 16px
 
+.. |eye-plus| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/3dcf5611281c35e3cf8b7676ca7c00c9b17ee8e7/cellacdc/resources/icons/eye-plus.svg
+    :target: https://github.com/SchmollerLab/Cell_ACDC/blob/main/cellacdc/resources/icons/eye-plus.svg
+    :alt: eye-plus icon
+    :height: 16px
+    :width: 16px
+
 * |eraser| "Eraser" and |brush| "Brush" function as you expect.
 * |separate| "Separation" can be used to separate two cells which were not segmented properly.
 * |EditID| "Edit ID" can be used to change the ID of a cell and mend tracking errors.
@@ -380,15 +420,24 @@ Important tools:
 * |AnnotateAsDead| "Annotate as dead", |ExcludeFromAnalysis| "exclude from analysis", |DeletionRegion| "deletion region" and |DelBorder| "delete all objects touching ROI border" for excluding cells or regions from analysis.
 * |Repeat-tracking| "Repeat tracking" and |reinitLastSegm| "repeat segmentation" for repeating the respective processes, which can be used to bring frame in line with previous frames.
 
-Important tips:
+**Important tips:**
 
-* Cells with a thick red contour and thick ID are new cells which were not present in the previous frame.
-* Yellow contours with a yellow ID with a question mark show the contours of cells which were present in the previous frame but are missing in the currently viewed frame.
-* Most key bindings can be viewed and customized via the menu found in the top ribbon "Settings" menu. Pressing "H" will centre the picture, and double pressing "H" resets zoom.
-* Press the middle mouse button to delete a cell ID.
-* Right click on any point in the picture to reveal more options. Most importantly, the option to show a duplicate picture. This is useful to both view the contours and the segmentation mask.
-* Double tap a binding for a tool to select the "empowered" version, which can draw over any cells. Otherwise, tools only influence the cell on which you start drawing. Pressing shift while drawing with the brush will force a new ID creation.
-* You can use the arrow keys to navigate between frames.
+* Cells with a **thick red contour** and **thick ID** are **new cells** which were not present in the previous frame.
+* **Yellow contours** with a **yellow ID** and a question mark show the contours of cells which were present in the previous frame but are **missing** in the currently viewed frame.
+* Most **key bindings** can be **viewed** and customized via the menu found in the top ribbon "Settings" menu. Pressing "H" will **centre** the picture, and double pressing "H" **resets zoom**.
+* **"Alt+Click+Drag"**: **pan/move** image
+* Press the **middle mouse button** (Windows) or **Cmd+Click** (MacOS) to **delete** a cell ID.
+* **"Ctrl+P"**: Visualize **cell cycle annotations** in a **table**.
+* **"Ctrl+L"**: **Relabel** object IDs sequentially (1,2,3...etc).
+* **"Ctrl+F"**: **Search** and **highlight** specific object ID.
+* **Right click** on any point in the picture to reveal **more options**. Most importantly, the option to show a duplicate picture. This is useful to both view the contours and the segmentation mask.
+* **"Spacebar"**: **Hide/show contours** or **segmentation masks** on left image
+* **Double tap a binding** for a tool to select the "empowered" version, which can **draw over any cells**. Otherwise, tools only influence the cell on which you start drawing. Pressing shift while drawing with the brush will force a new ID creation.
+* You can use the **arrow keys** to **navigate** between frames.
+* To test the available segmentation models, use the ``Segment`` menu.
+* To navigate frames (time-lapse data) or positions (snapshots data), use the arrows on the keyboard.
+* To visualize the frames of time-lapse data in a second window click on the |eye-plus| "Slideshow" button on the toolbar:
+* Personalize settings such as font Size, overlay colour and text's colour from the ``Edit`` menu.
 
 Cell Cycle Annotation
 ~~~~~~~~~~~~~~~~~~~~~
@@ -440,6 +489,39 @@ After finishing annotating the first frame, you will be prompted to accept the c
 
 All functions
 ~~~~~~~~~~~~~
+
+See the `GUI tools section <https://cell-acdc.readthedocs.io/en/latest/tooltips.html>`__ for a full run down of all tools.
+
+``File → Load fluorescent images…``
+
+    Used to load additional images (e.g., fluorescence signal).
+
+    Loaded images will be used to calculate metrics such as mean, median, total amount etc. See this section for more details.
+
+``Edit → Smart handling of enabling/disabling tracking``
+
+    The GUI has built-in automatic tracking for time-lapse data with the following behaviour:
+
+        * If tracking is active (Disable tracking checkbox on the toolbar is UNCHECKED): When you visit a frame that you have never visited before, objects will be automatically tracked compared to previous frame.
+        * If tracking is deactivated (Disable tracking checkbox on the toolbar is CHECKED): When you visit a frame already visited before, it will not be tracked.
+  
+    You can disable this automatic behaviour by unchecking Smart handling of enabling/disabling tracking.
+
+    When you disable smart handling, you can enforce tracking on all visited frames no matter if they were previously visited or not. To force this, use the "Disable tracking" checkbox on the toolbar.
+
+.. tip:: 
+    
+    This is useful when you know you have to repeat tracking on already visited frames. 
+    
+``Image → Normalise intensities → …``
+
+You can choose to normalise the intensities of the displayed images (saved data will not be modified) with the following methods:
+
+    * Do not normalise: Displays raw image.
+    * Convert to floating point format with values [0, 1]: Simply converts image to floating point, no normalisation is involved.
+    * Rescale to [0,1]: Intensities are first converted to floating point if needed and then STRETCHED to convert the entire [0,1] range.
+    * Normalize by max value: Intensities are divided by the max value.
+
 **Shared:**
 
 * Top ribbon:
@@ -494,6 +576,3 @@ All functions
     * Settings: Settings for changing the behaviour of tools, including **warning behaviour** and **not disabling tools after usage** 
     * Mode: change the mode
         * Segmentation and Tracking, Cell cycle analysis, Viewer, Custom annotations
-
-
-

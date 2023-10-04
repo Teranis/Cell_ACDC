@@ -76,7 +76,9 @@ Contents
    installation
    getting-started
    tooltips
-   bdir_corr.rst
+   models
+   bdir_corr
+   datastruc
    release-notes
    other
 
