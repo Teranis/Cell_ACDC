@@ -266,7 +266,9 @@
 GUI tools
 =========
 
-Overview of all tools available in the GUI
+Overview of all tools available in the GUI.
+
+.. contents::
 
 File control
 ------------

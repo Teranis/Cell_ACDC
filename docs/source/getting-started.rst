@@ -16,7 +16,7 @@ Running Cell-ACDC
 
 The Main Menu
 -------------
-The main menu is a hub through which you can access all relevant modules.
+The main menu is a **hub** through which you can access all relevant modules.
 
 .. figure:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/MainMenu.png?raw=true
     :alt: Overview of the main menu
@@ -29,20 +29,21 @@ Module buttons
 Through the main menu, all modules of Cell-ACDC can be accessed:
 
 1. Create data structure from microscopy/image file(s)...
-    This module will allow you to create a suitable data structure from raw microscopy files.
+    This module will allow you to **create a suitable data structure** from raw microscopy files.
 2. Launch data prep module...
-    With this module you can align time-lapse microscopy data and select a sharp image from a z-stack, as well as crop images
+    With this module you can **align** time-lapse microscopy data and select a **sharp image from a z-stack**, as well as **crop** images.
 3. Launch segmentation module...
-    Using this module, you can perform segmentation and tracking tasks using common methods.
+    Using this module, you can perform **segmentation** and **tracking** tasks using common methods.
 4. Launch GUI...
-    Lastly, using the GUI the resulting data can be inspected and corrected for mistakes. Also, cell cycle annotation can be carried out.
+    Lastly, using the GUI the resulting data can be **inspected** and **corrected** for mistakes. Also, **cell cycle annotation** can be carried out.
 
 Top ribbon options include:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Recent paths
-    * Here you can access a history of recent paths used in any of the modules.
+    * Here you can access a **history of recent paths** used in any of the modules.
 * Utilities
-    * Some extra utilities which might be useful, including:
+    * Some **extra utilities** which might be useful, including:
+  
         * Convert file formats
         * Segmentation: Creating 3D segmentation masks
         * Tracking: Tracking and counting sub-cellular objects as well as applying tracking information from tabular data
@@ -54,24 +55,25 @@ Top ribbon options include:
         * Align or revert alignment
         * Rename files by appending additional text
 * Settings
-    * Allows manipulation of the user profile path.
+    * Allows manipulation of the **user profile** path.
 * Napari
     * View the Napari lineage tree. 
 * Help
-    * Provides links to user manuals and start up guide, as well as a link to the relevant paper for citation and guides on how to contribute, viewing the log files and show additional info about Cell-ACDC.
+    * Provides links to **user manuals and start up guide**, as well as a link to the **relevant paper** for citation and guides on how to contribute, viewing the **log files** and show **additional info** about Cell-ACDC, including the **installation path**.
 
 Additional options include:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* Restoring all open windows
+* **Restoring** all open windows
+  
         Restores all windows which were minimized 
-* Closing the application and all active modules
-* Toggle switch for dark mode
+* **Closing** the application and all active modules
+* Toggle switch for **dark mode**
 
 Creating Data Structures
 ------------------------
 **0. Create data structure from microscopy/image file(s)...**
 
-The first step in analysing data with Cell-ACDC is creating a suitable data structure from raw microscopy files. This can be done completely automated using module 0.
+The first step in analysing data with Cell-ACDC is creating a **suitable data structure** from raw microscopy files. This can be done completely automated using module 0.
 
 To start off, launch the module by pressing on the corresponding button in the main menu.
 
@@ -87,17 +89,14 @@ This will open a window in which you can choose how you want to proceed.
 
     Alternatively, if you already pre-processed your microscopy files into TIF files, you could choose to simply re-structure them into the Cell-ACDC compatible format.
 
-After choosing an option, another window will open prompting you to select what kind of data you want to extract from the raw microscopy file:
+After choosing an option, another window will open prompting you to select **what kind of data** you want to extract from the raw microscopy file:
 
 * Single microscopy file with one or more positions
-
 * Multiple microscopy files, one for each position
-
 * Multiple microscopy files, one for each channel
-
 * NONE of the above
 
-Please select the appropriate option. Afterwards, you are prompted to create an empty folder in which only the microscopy file(s) are present. After doing so, select "Done". Next, you will be prompted to select this folder. After selecting the destination folder, which by default is the folder you selected in the step before, Cell-ACDC will attempt to load OEM metadata.
+Please select the appropriate option. Afterwards, you are prompted to **create an empty folder** in which only the microscopy file(s) are present. After doing so, select "Done". Next, you will be prompted to select this folder. After selecting the **destination folder**, which by default is the folder you selected in the step before, Cell-ACDC will attempt to load OEM metadata.
 
 .. |eyeplusicon| image:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/eye-plus.svg
     :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icons/eye-plus.svg
@@ -105,7 +104,7 @@ Please select the appropriate option. Afterwards, you are prompted to create an 
     :height: 16px
     :width: 16px
 
-A window with the extracted metadata should appear, which may take a few seconds to load. Make sure to double check all values and **change "Order of Dimensions"** to the appropriate value. To double check if the dimensions are in the correct order, select the eye icon (|eyeplusicon|) next to "Channel 0" and use the scrollbars to go through the z-coordinate and time-coordinate. Once all values are in order, press "Ok". If the values are the same for all positions, feel free to click "Use the above metadata for all the next positions".
+A window with the extracted metadata should appear, which may **take a few seconds to load**. Make sure to **double check** all values and **change "Order of Dimensions"** to the appropriate value. To double **check if the dimensions are in the correct order**, select the eye icon (|eyeplusicon|) next to "Channel 0" and use the scrollbars to go through the z-coordinate and time-coordinate. Once all values are in order, press "Ok". If the values are the same for all positions, feel free to click "Use the above metadata for all the next positions".
 
 .. note:: 
     that if you have several files, and you press "Ok" and not one of the two other options, the process will stop after each file, and you need to confirm the metadata again.
@@ -200,26 +199,22 @@ Preparing data for further analysis
 Through pressing "Launch data prep module…" in the main menu, the module can be launched. In this step you can:
 
 a) Select a z-slice or z-projection for segmentation of 3D z-stacks.
-
 b) Align frames of time-lapse microscopy data (RECOMMENDED, it is revertible).
-
 c) Calculate background metrics (median, mean etc.) from one or more rectangular areas. The median will be used later for background subtraction. The areas are movable and resizable.
-
 d) Select a region of interest (ROI) for segmentation.
-
 e) Crop images to reduce memory usage (RECOMMENDED, if possible).
 
 The alignment process is done using the function ``skimage.registration.phase_cross_correlation`` from the `scikit-image library <https://scikit-image.org/>`__.
 
-To start off, click "File" in the top ribbon and then select "Open". Select the position folder, for example "Position_1", which you want to start preparing. A pop up will appear which asks you for the channel name. Here you should input the channel on which basis you want to align.
+To start off, click **"File"** in the top ribbon and then select **"Open"**. Select the position folder, for example "Position_1", which you want to start preparing. A pop up will appear which asks you for the channel name. Here you should input the channel on which **basis you want to align**.
 
-In the next menu, select the desired number of frames and z-slices. Here you can also add another custom field, which will be saved in the metadata table. Later, this will be added as a column to the output table.
+In the next menu, select the **desired number of frames and z-slices**. Here you can also add another custom field, which will be saved in the metadata table. Later, this will be added as a column to the output table.
 
-Next, go through each frame and select the z-slice which is the sharpest (if your data is 3D). Using the buttons in the top button row, you can apply the current slice to all future (|zforw|) or past (|zback|) frames, as well as apply a gradient (|interp|) from the current frame to the first one. The selection is saved automatically in (almost) real time. If you only need to do this step, feel free to close the window after finishing.
+Next, go through each frame and **select the z-slice which is the sharpest** (if your data is 3D). Using the **buttons in the top button row**, you can apply the current slice to all future (|zforw|) or past (|zback|) frames, as well as apply a gradient (|interp|) from the current frame to the first one. The selection is saved automatically in (almost) real time. If you only need to do this step, feel free to close the window after finishing.
 
 Alternatively, a projection can be used. This is done through the projection drop down menu in the bottom right.
 
-Next, select "start" (|starticon|) from the buttons bar. This will start the alignment process. The window may become unresponsive, please check the terminal for progress.
+Next, select **"start"** (|starticon|) from the buttons bar. This will **start the alignment process**. **The window may become unresponsive**, please check the terminal for progress.
 
 .. note::
 
@@ -228,7 +223,7 @@ Next, select "start" (|starticon|) from the buttons bar. This will start the ali
     For time-lapse microscopy you can load only one position at a time. Select multiple positions only if you have single 3D z-stacks or single 2D images.
 
 
-Afterwards, the region of interest (ROI) as well as the background ROI (Bkgr. ROI) can be adjusted. This is done through drag and drop on the edges and resizing on the turquoise rhombuses. Make sure that the ROI covers all cells of interest on all frames and that the Bkgr. ROI is on an area without cells. Multiple ROIs (|add_crop_ROI|) and Bkgr. ROIs (|bkgrRoiicon|) can be added through the corresponding buttons. Right click on one of the frames to show an interaction menu through which you can remove it. Once all is set, press the "Crop" (|crop|) button. **This will overwrite the previous files**. The window may become unresponsive. Alternatively, only a single stack can be cropped using the "Crop only current stack" (|cropZ|) button. 
+Afterwards, the **region of interest (ROI)** as well as the **background ROI (Bkgr. ROI)** can be adjusted. This is done through drag and drop on the edges and resizing on the turquoise rhombuses. Make sure that the ROI covers all cells of interest on all frames and that the Bkgr. ROI is on an area without cells. **Multiple ROIs** (|add_crop_ROI|) **and Bkgr. ROIs** (|bkgrRoiicon|) can be added through the corresponding buttons. **Right click** on one of the frames to show an interaction menu through which you can **remove** it. Once all is set, press the **"Crop"** (|crop|) button. **This will overwrite the previous files**. The window may become **unresponsive**. Alternatively, only a single stack can be cropped using the **"Crop only current stack"** (|cropZ|) button. 
 
 
 .. note::
@@ -260,13 +255,13 @@ Segmentation and tracking
 -------------------------
 **2. Launch segmentation module…**
 
-This module can be used to segment and track objects in your data. A plethora of options are available already, and new ones are added constantly. You can also add your own models, a tutorial for this will be added in the future.
+This module can be used to **segment and track objects** in your data. A plethora of options are available already, and new ones are added constantly. You can also add **your own models**, for this please see `this guide <https://cell-acdc.readthedocs.io/en/latest/models.html#adding-a-new-model>`__.
 
-Upon launching the module, you first will be prompted to select a folder. This process is the same as before. Next, like before, you are prompted to select a channel which should be used for segmentation.
+Upon launching the module, you first will be prompted to **select a folder**. This process is the same as before. Next, like before, you are prompted to select a channel which should be **used for segmentation**.
 
-After a short wait, you are prompted to select the model you want to use for **segmentation**, after which one needs to confirm the parameters for segmentation as well as post processing.
+After a short wait, you are prompted to **select the model** you want to use for **segmentation**, after which one needs to confirm the parameters for segmentation as well as post processing.
 
-Next, you can select a stop frame if you don't want to segment and track the entire experiment. Lastly, you need to select the model which should be used for **tracking**. The process now begins, and you can lay back and watch the computer work for you.
+Next, you can **select a stop frame** if you don't want to segment and track the entire experiment. Lastly, you need to **select the model** which should be used for **tracking**. The process now begins, and you can lay back and watch the computer work for you.
 
 .. figure:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/Seg1.png?raw=true
     :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/Seg1.png
@@ -288,6 +283,11 @@ Next, you can select a stop frame if you don't want to segment and track the ent
     :alt: Segmentation and Tracking: Tracking model
     :width: 300
 
+.. figure:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/Seg5.png?raw=true
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/Seg5.png
+    :alt: Segmentation and Tracking: File structure
+    :width: 300
+
 Correcting Tracking and Segmentation Mistakes, Cell Cycle Annotation
 --------------------------------------------------------------------
 **3. Launching GUI…**
@@ -299,6 +299,7 @@ Correcting Tracking and Segmentation Mistakes, Cell Cycle Annotation
     :width: 16px
 
 The GUI is very useful to review and annotate data. For a full breakdown of all tools, please see the section `GUI tools <https://cell-acdc.readthedocs.io/en/latest/tooltips.html>`__.
+
 Its main functions are:
 
     a) **Test** which **segmentation method** works best for your dataset.
@@ -328,7 +329,7 @@ See sections `"Segmentation and tracking" <https://cell-acdc.readthedocs.io/en/l
 
 Correcting Tracking and Segmentation Mistakes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The first step in using the GUI is to load a file. For this, click on "File" in the top ribbon and select "Load folder", or directly select the corresponding button (|loadfolder|). This will open a window which prompts you to select a folder. After selecting the folder containing the information for the position you want to analyse, you will be prompted to select the channel you want to view as well as double check the metadata.
+The first step in using the GUI is to load a file. For this, click on **"File"** in the top ribbon and select **"Load folder"**, or directly select the corresponding button (|loadfolder|). This will open a window which prompts you to select a folder. After selecting the folder containing the information for the position you want to analyse, you will be prompted to **select the channel you want to view** as well as double **check the metadata**.
 
 Alternatively, if only a single image or video should be analysed, select ``File → Open image/video file…``.
 
@@ -337,7 +338,7 @@ Alternatively, if only a single image or video should be analysed, select ``File
 
 After first loading data, you will notice that the current mode is set to "Viewer". This allows you to freely browse through all images, which can be useful for gaining an overview of the data.
 
-To start editing, change the mode to "Segmentation and Tracking".
+To start editing, change the mode to **"Segmentation and Tracking"**.
 
 **Important tools:**
 
@@ -413,31 +414,32 @@ To start editing, change the mode to "Segmentation and Tracking".
     :height: 16px
     :width: 16px
 
-* |eraser| "Eraser" and |brush| "Brush" function as you expect.
-* |separate| "Separation" can be used to separate two cells which were not segmented properly.
-* |EditID| "Edit ID" can be used to change the ID of a cell and mend tracking errors.
-* |MergeIDs| "Merge IDs" for merging two IDs if a cell was segmented into two parts.
-* |AnnotateAsDead| "Annotate as dead", |ExcludeFromAnalysis| "exclude from analysis", |DeletionRegion| "deletion region" and |DelBorder| "delete all objects touching ROI border" for excluding cells or regions from analysis.
-* |Repeat-tracking| "Repeat tracking" and |reinitLastSegm| "repeat segmentation" for repeating the respective processes, which can be used to bring frame in line with previous frames.
+* |eraser| **"Eraser"** and |brush| **"Brush"** function as you expect.
+* |separate| **"Separation**" can be used to s**eparate two cells** which were not segmented properly.
+* |EditID| **"Edit ID"** can be used to **change the ID** of a cell and mend tracking errors.
+* |MergeIDs| **"Merge IDs"** for **merging two IDs** if a cell was segmented into two parts.
+* |AnnotateAsDead| **"Annotate as dead"**, |ExcludeFromAnalysis| **"exclude from analysis"**, |DeletionRegion| **"deletion region"** and |DelBorder| "**delete all objects touching ROI border"** for **excluding cells** or regions from analysis.
+* |Repeat-tracking| **"Repeat tracking"** and |reinitLastSegm| **"repeat segmentation"** for **repeating** the respective processes, which can be used to bring frame in line with previous frames.
 
 **Important tips:**
 
 * Cells with a **thick red contour** and **thick ID** are **new cells** which were not present in the previous frame.
 * **Yellow contours** with a **yellow ID** and a question mark show the contours of cells which were present in the previous frame but are **missing** in the currently viewed frame.
-* Most **key bindings** can be **viewed** and customized via the menu found in the top ribbon "Settings" menu. Pressing "H" will **centre** the picture, and double pressing "H" **resets zoom**.
+* Most **key bindings** can be **viewed** and customized via the menu found in the **top ribbon "Settings" menu**. 
+* **"H"**: **centre** the picture. Double pressing **"H"**: **resets zoom**.
 * **"Alt+Click+Drag"**: **pan/move** image
-* Press the **middle mouse button** (Windows) or **Cmd+Click** (MacOS) to **delete** a cell ID.
+* **middle mouse button** (Windows) or **Cmd+Click** (MacOS): **delete** a cell ID.
 * **"Ctrl+P"**: Visualize **cell cycle annotations** in a **table**.
 * **"Ctrl+L"**: **Relabel** object IDs sequentially (1,2,3...etc).
 * **"Ctrl+F"**: **Search** and **highlight** specific object ID.
-* **Right click** on any point in the picture to reveal **more options**. Most importantly, the option to show a duplicate picture. This is useful to both view the contours and the segmentation mask.
+* **Right click** on any point in the picture to reveal **more options**. Most importantly, the option to show a **duplicate picture**. This is useful to both view the contours and the segmentation mask.
 * **"Spacebar"**: **Hide/show contours** or **segmentation masks** on left image
-* **Double tap a binding** for a tool to select the "empowered" version, which can **draw over any cells**. Otherwise, tools only influence the cell on which you start drawing. Pressing shift while drawing with the brush will force a new ID creation.
+* **Double tap a binding** for a tool to select the **"empowered" version**, which can **draw over any cells**. Otherwise, tools only influence the cell on which you start drawing. 
+* **Shift while drawing with the brush** will force a **new ID** creation.
 * You can use the **arrow keys** to **navigate** between frames.
-* To test the available segmentation models, use the ``Segment`` menu.
-* To navigate frames (time-lapse data) or positions (snapshots data), use the arrows on the keyboard.
-* To visualize the frames of time-lapse data in a second window click on the |eye-plus| "Slideshow" button on the toolbar:
-* Personalize settings such as font Size, overlay colour and text's colour from the ``Edit`` menu.
+* To **test** the available **segmentation models**, use the ``Segment`` menu.
+* To **visualize** the **frames** of time-lapse data in a second window click on the |eye-plus| **"Slideshow"** button on the toolbar
+* **Personalize settings** such as font Size, overlay colour and text's colour from the ``Edit`` menu.
 
 Cell Cycle Annotation
 ~~~~~~~~~~~~~~~~~~~~~
@@ -462,10 +464,10 @@ After correcting all errors, change the mode to "Cell Cycle Analysis". You will 
     :height: 16px
     :width: 16px
 
-* |assign-motherbud| "Assign bud to mother" is used if automatic assignment is wrong. For this activate the tool, then press and hold the right mouse button on the bud, then drag to the mother and release.
-* |history| "Annotate unknown history" can be used to annotate cells which have unknown history.
-* |reinitCca| "Reinitialize cell cycle annotation" for running cell cycle annotation from this frame foreword to make them in line with current edits.
-* "Right click on mother/bud pair" will break the bond. Right click again to rebind them. This needs to be done manually whenever a mother and bud separate.
+* |assign-motherbud| **"Assign bud to mother"** is used if automatic assignment is wrong. For this activate the tool, then press and hold the right mouse button on the bud, then drag to the mother and release.
+* |history| **"Annotate unknown history"** can be used to annotate cells which have unknown history.
+* |reinitCca| **"Reinitialize cell cycle annotation"** for running cell cycle annotation from this frame foreword to make them in line with current edits.
+* **"Right click on mother/bud pair"** will **break the bond**. Right click **again** to **rebind** them. This needs to be done manually whenever a mother and bud separate.
   
 After finishing annotating the first frame, you will be prompted to accept the current annotation. This is only to make sure that the initial annotations are correct.
 
@@ -487,6 +489,12 @@ After finishing annotating the first frame, you will be prompted to accept the c
     :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/GUI4.png
     :alt: GUI: GUI for cell cycle annotation
 
+.. figure:: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/GUI5.png?raw=true
+    :target: https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/docs/source/images/GUI5.png
+    :alt: GUI: File Structure
+    :width: 300
+
+
 All functions
 ~~~~~~~~~~~~~
 
@@ -494,16 +502,16 @@ See the `GUI tools section <https://cell-acdc.readthedocs.io/en/latest/tooltips.
 
 ``File → Load fluorescent images…``
 
-    Used to load additional images (e.g., fluorescence signal).
+    Used to **load additional images** (e.g., fluorescence signal).
 
-    Loaded images will be used to calculate metrics such as mean, median, total amount etc. See this section for more details.
+    Loaded images will be used to **calculate metrics** such as mean, median, total amount etc. See this section for more details.
 
 ``Edit → Smart handling of enabling/disabling tracking``
 
     The GUI has built-in automatic tracking for time-lapse data with the following behaviour:
 
-        * If tracking is active (Disable tracking checkbox on the toolbar is UNCHECKED): When you visit a frame that you have never visited before, objects will be automatically tracked compared to previous frame.
-        * If tracking is deactivated (Disable tracking checkbox on the toolbar is CHECKED): When you visit a frame already visited before, it will not be tracked.
+        * If tracking is active (Disable tracking checkbox on the toolbar is UNCHECKED): When you visit a frame that you have never visited before, objects will be **automatically tracked** compared to previous frame.
+        * If tracking is deactivated (Disable tracking checkbox on the toolbar is CHECKED): When you visit a frame already visited before, it will **not** be tracked.
   
     You can disable this automatic behaviour by unchecking Smart handling of enabling/disabling tracking.
 
@@ -515,12 +523,12 @@ See the `GUI tools section <https://cell-acdc.readthedocs.io/en/latest/tooltips.
     
 ``Image → Normalise intensities → …``
 
-You can choose to normalise the intensities of the displayed images (saved data will not be modified) with the following methods:
+    You can choose to **normalise the intensities** of the displayed images (saved data will not be modified) with the following methods:
 
-    * Do not normalise: Displays raw image.
-    * Convert to floating point format with values [0, 1]: Simply converts image to floating point, no normalisation is involved.
-    * Rescale to [0,1]: Intensities are first converted to floating point if needed and then STRETCHED to convert the entire [0,1] range.
-    * Normalize by max value: Intensities are divided by the max value.
+        * Do not normalise: Displays raw image.
+        * Convert to floating point format with values [0, 1]: Simply converts image to **floating point**, no normalisation is involved.
+        * Rescale to [0,1]: Intensities are first converted to **floating point** if needed and then **STRETCHED** to convert the entire [0,1] range.
+        * Normalize by max value: Intensities are **divided by the max value**.
 
 **Shared:**
 

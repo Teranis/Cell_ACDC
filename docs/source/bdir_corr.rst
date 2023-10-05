@@ -1,6 +1,5 @@
 .. role:: raw-latex(raw)
    :format: latex
-..
 
 Scripts to correct shifts in bidirectional scanning
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
