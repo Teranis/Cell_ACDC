@@ -494,7 +494,6 @@ After finishing annotating the first frame, you will be prompted to accept the c
     :alt: GUI: File Structure
     :width: 500
 
-
 All functions
 ~~~~~~~~~~~~~
 

@@ -270,6 +270,7 @@ Overview of all tools available in the GUI.
 
 .. contents::
 
+
 File control
 ------------
 * **New File (** |newAction| **"Ctrl+N"):**  Create a new empty segmentation file.
