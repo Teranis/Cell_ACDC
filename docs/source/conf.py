@@ -30,6 +30,8 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
+html_favicon = 'https://raw.githubusercontent.com/SchmollerLab/Cell_ACDC/main/cellacdc/resources/icon.ico'
+
 templates_path = ['_templates']
 
 # -- Options for HTML output
