@@ -32,6 +32,7 @@ from typing import List, Callable, Tuple
 import traceback
 import itertools
 from dulwich import porcelain
+from dulwich.index import build_index_from_tree
 from dulwich.repo import Repo
 
 from natsort import natsorted
@@ -4650,17 +4651,9 @@ def _update_repo_with_dulwich(parent, package_name, repo_location):
         try:
             # reset the repository to the latest commit
             result = porcelain.pull(repo_location, remote_location='origin')
-            tries_remaining = 5
-            success = False
-            while tries_remaining > 0 and not success:
-                try:
-                    porcelain.reset(repo_location, mode='hard')
-                    success = True
-                except Exception as e:
-                    print(f"Reset failed for {package_name}: {e}"
-                          )
-                    tries_remaining -= 1
-                    time.sleep(1)  # Give some time for the reset to complete
+            repo = Repo(repo_location)
+            tree = repo[repo.head().tree]
+            build_index_from_tree(repo.path, repo.index_path(), repo.object_store, tree)
             print(f"Successfully updated {package_name}")
             return True
             
@@ -4672,6 +4665,7 @@ def _update_repo_with_dulwich(parent, package_name, repo_location):
     except Exception as e:
         print(f"Dulwich error updating {package_name}: {e}")
         return False
+    
 def _update_repo_with_git_command(package_name, repo_location):
     """Update repository using git command"""
     try:
