@@ -4650,6 +4650,7 @@ def _update_repo_with_dulwich(parent, package_name, repo_location):
         try:
             # reset the repository to the latest commit
             result = porcelain.pull(repo_location, remote_location='origin')
+            porcelain.reset(repo_location, mode='hard')
             print(f"Successfully updated {package_name}")
             return True
             
