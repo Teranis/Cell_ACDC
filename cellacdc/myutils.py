@@ -4652,7 +4652,9 @@ def _update_repo_with_dulwich(parent, package_name, repo_location):
             # reset the repository to the latest commit
             result = porcelain.pull(repo_location, remote_location='origin')
             repo = Repo(repo_location)
-            tree = repo[repo.head().tree]
+            head_commit = repo[repo.head()]
+            tree = repo[head_commit.tree]
+            build_index_from_tree(repo.path, repo.index_path(), repo.object_store, tree)
             build_index_from_tree(repo.path, repo.index_path(), repo.object_store, tree)
             print(f"Successfully updated {package_name}")
             return True
